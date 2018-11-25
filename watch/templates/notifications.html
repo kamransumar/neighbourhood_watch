@@ -23,7 +23,7 @@
       {% for notification in notifications%}
       <tr data-toggle="modal" data-target="#{{notification.id}}">
         <td>{{ notification.title }}</td>
-        <td>{{ notification.notification }}</td>
+        <td>{{ notification.notification | safe }}</td>
         <td>{{ notification.priority }}</td>
         <td>{{ notification.author }}</td>
         <td>{{ notification.post_date }}</td>
@@ -51,10 +51,10 @@
                 <span style="font-weight:bold;">Priority:</span>
                 {{ notification.priority }}
               </p>
-              
+              <p>
                 <span style="font-weight:bold;">Posted on:</span>
-                {{ notification.post_date }}
-              
+                {{ notification.post_date}}
+              </p>
             </div>
           </div>
         </div>
