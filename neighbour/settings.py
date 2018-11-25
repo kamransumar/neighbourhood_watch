@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'watch',
     'bootstrap3',
     'tinymce',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
