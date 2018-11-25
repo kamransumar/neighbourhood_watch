@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% load static %} {% load staticfiles %} {% block
-content %}
+{% extends 'base.html' %} {% load static %} {% load staticfiles %} 
+{% block content %}
 <div class="container">
   <div class="text-center">
     <a href="{% url 'new-notification' %}">
@@ -23,10 +23,10 @@ content %}
       {% for notification in notifications%}
       <tr data-toggle="modal" data-target="#{{notification.id}}">
         <td>{{ notification.title }}</td>
-        <td>{{ notification.notification | safe | truncatechars: 85 }}</td>
+        <td>{{ notification.notification }}</td>
         <td>{{ notification.priority }}</td>
         <td>{{ notification.author }}</td>
-        <td>{{ notification.post_date | date: "M d, Y" }}</td>
+        <td>{{ notification.post_date }}</td>
       </tr>
 
       <!-- Modal -->
@@ -51,10 +51,10 @@ content %}
                 <span style="font-weight:bold;">Priority:</span>
                 {{ notification.priority }}
               </p>
-              <p>
+              
                 <span style="font-weight:bold;">Posted on:</span>
-                {{ notification.post_date | date: "M d, Y" }}
-              </p>
+                {{ notification.post_date }}
+              
             </div>
           </div>
         </div>
