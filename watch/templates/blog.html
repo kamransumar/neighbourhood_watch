@@ -1,4 +1,8 @@
-{% extends 'base.html' %} {% load static %} {% load staticfiles %} 
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+
 {% block content %}
 
 <div class="container">
@@ -7,32 +11,24 @@
   </div>
 
   <div class="text-center">
-    <a href="{% url 'new-blogpost' %}">
-      <button class="btn btn-primary" style="height:50px;  margin-top: -6px;">
-        Create BlogPost
-      </button>
+    <a href="{% url 'new-blogpost' %}" >
+        <button class="btn btn-primary" style="height:50px;  margin-top: -6px;">Create BlogPost</button>
     </a>
   </div>
 
   {% for blog in blogposts %}
   <div class="card" style="width: 30rem;">
-    <div class="card-body">
-      <a
-        href="/view/blog/{{blog.id}}"
-        style="color:black;text-decoration:none;margin:auto;"
-      >
-        <h5 class="card-title">{{ blog.title }}</h5>
-      </a>
-      <a
-        href="/user/{{blog.username}}"
-        style="color:black;text-decoration:none;margin:auto;"
-      >
-        <h6 class="card-subtitle mb-2 text-muted">{{ blog.username }}</h6>
-      </a>
-      <p class="card-text">{{ blog.post | safe}}</p>
-      <a href="/view/blog/{{blog.id}}" class="card-link">Continue reading</a>
-    </div>
+  <div class="card-body">
+    <a href="/view/blog/{{blog.id}}" style="color:black;text-decoration:none;margin:auto;">
+      <h5 class="card-title">{{blog.title}}</h5>
+    </a>
+    <a href="/user/{{blog.username}}" style="color:black;text-decoration:none;margin:auto;">
+      <h6 class="card-subtitle mb-2 text-muted">{{blog.username}}</h6>
+    </a>
+    <p class="card-text">{{blog.post|truncatechars:200 | safe}}</p>
+    <a href="/view/blog/{{blog.id}}" class="card-link">Continue reading</a>
   </div>
-  {% endfor %}
+</div>
+{% endfor %}
 </div>
 {% endblock %}
